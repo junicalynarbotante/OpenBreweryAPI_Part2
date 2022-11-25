@@ -21,16 +21,16 @@ class MainMenu : AppCompatActivity() , View.OnClickListener {
     override fun onClick(p0: View?) {
         when(p0!!.id) {
             (R.id.btn_search_brewery) -> {
-                val intent = Intent(this@MainMenu,MainActivity::class.java)
+                val intent = Intent(this@MainMenu,SearchActivity::class.java)
                 startActivity(intent)
 
             }
             (R.id.btn_brewery_list) -> {
-                val intent = Intent(this@MainMenu,MainActivity::class.java)
+                val intent = Intent(this@MainMenu,BreweryListActivity::class.java)
                 startActivity(intent)
             }
             (R.id.btn_random_brewery)-> {
-                val intent = Intent(this@MainMenu,MainActivity::class.java)
+                val intent = Intent(this@MainMenu,RandomBreweryActivity::class.java)
                 startActivity(intent)
             }
         }
