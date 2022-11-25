@@ -1,4 +1,4 @@
-package com.example.openbreweryapi.BreweryAPI
+package com.example.openbreweryapi.breweryAPI
 
 data class APIBreweryItem(
     var address_2: Any,

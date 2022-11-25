@@ -13,8 +13,6 @@ class BreweryListActivity : AppCompatActivity() {
         binding = ActivityBreweryListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        
     }
 
 
