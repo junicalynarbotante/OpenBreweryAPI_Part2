@@ -1,6 +1,7 @@
-package com.example.openbreweryapi.breweryAPI
+package com.example.openbreweryapi.models.listBreweryAPI
 
-data class APIBreweryItem(
+
+data class openBreweryModelItem(
     var address_2: Any,
     var address_3: Any,
     var brewery_type: String,
