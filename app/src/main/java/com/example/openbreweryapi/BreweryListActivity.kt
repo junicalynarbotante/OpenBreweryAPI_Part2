@@ -12,5 +12,8 @@ class BreweryListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBreweryListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
+
+
 }
