@@ -27,9 +27,10 @@
             android:id="@+id/txt_main_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Brewery App"
+            android:fontFamily="@font/rye"
+            android:text="BREWERY APP"
             android:textAlignment="center"
-            android:textSize="40sp" />
+            android:textSize="40sp"/>
 
     </LinearLayout>
 
@@ -81,8 +82,6 @@
                 android:textSize="18sp"/>
 
         </LinearLayout>
-
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
