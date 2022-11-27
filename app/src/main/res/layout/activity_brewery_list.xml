@@ -76,8 +76,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#6A3005"
+            android:backgroundTint="@color/Dark_brown"
             android:fontFamily="@font/archivo_bold"
+            app:cornerRadius="28dp"
             android:text="Refresh List" />
     </LinearLayout>
 

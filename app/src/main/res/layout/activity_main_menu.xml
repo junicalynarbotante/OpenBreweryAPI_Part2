@@ -6,20 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainMenu"
-    android:background="@color/black">
+    android:background="@drawable/bg_menu">
 
     <LinearLayout
         android:id="@+id/ll_main_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_menu_title"
         android:orientation="vertical"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -30,16 +31,20 @@
             android:fontFamily="@font/rye"
             android:text="BREWERY APP"
             android:textAlignment="center"
-            android:textSize="40sp"/>
+            android:textColor="@color/white"
+            android:textSize="40sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/bg_menu_title"
         android:orientation="vertical"
         android:paddingTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
@@ -49,7 +54,6 @@
             android:orientation="vertical"
             android:paddingStart="40dp"
             android:paddingEnd="40dp"
-            android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -61,7 +65,8 @@
                 app:cornerRadius="28dp"
                 android:layout_marginBottom="20dp"
                 android:text="Search Brewery"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:fontFamily="@font/archivo_bold"/>
 
             <Button
                 android:id="@+id/btn_brewery_list"
@@ -70,7 +75,8 @@
                 app:cornerRadius="28dp"
                 android:layout_marginBottom="20dp"
                 android:text="Brewery List"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:fontFamily="@font/archivo_bold"/>
 
             <Button
                 android:id="@+id/btn_random_brewery"
@@ -79,7 +85,8 @@
                 app:cornerRadius="28dp"
                 android:layout_marginBottom="20dp"
                 android:text="Random Brewery"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:fontFamily="@font/archivo_bold"/>
 
         </LinearLayout>
     </LinearLayout>
