@@ -13,9 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/bg_menu_title"
         android:orientation="vertical"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
@@ -32,14 +31,13 @@
             android:text="BREWERY APP"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="50sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_menu_title"
         android:orientation="vertical"
         android:paddingTop="30dp"
         android:layout_marginRight="20dp"
@@ -66,7 +64,10 @@
                 android:layout_marginBottom="20dp"
                 android:text="Search Brewery"
                 android:textSize="18sp"
-                android:fontFamily="@font/archivo_bold"/>
+                android:fontFamily="@font/archivo_bold"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="@color/Dark_brown"
+                />
 
             <Button
                 android:id="@+id/btn_brewery_list"
@@ -76,7 +77,9 @@
                 android:layout_marginBottom="20dp"
                 android:text="Brewery List"
                 android:textSize="18sp"
-                android:fontFamily="@font/archivo_bold"/>
+                android:fontFamily="@font/archivo_bold"
+                android:backgroundTint="#FFFD8D"
+                android:textColor="@color/Dark_brown"/>
 
             <Button
                 android:id="@+id/btn_random_brewery"
@@ -86,7 +89,9 @@
                 android:layout_marginBottom="20dp"
                 android:text="Random Brewery"
                 android:textSize="18sp"
-                android:fontFamily="@font/archivo_bold"/>
+                android:fontFamily="@font/archivo_bold"
+                android:backgroundTint="#FFA93B"
+                android:textColor="@color/Dark_brown"/>
 
         </LinearLayout>
     </LinearLayout>

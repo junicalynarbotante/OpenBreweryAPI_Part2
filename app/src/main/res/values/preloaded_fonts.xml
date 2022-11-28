@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/abril_fatface</item>
+        <item>@font/alegreya_sans_sc_black_italic</item>
         <item>@font/archivo_bold</item>
         <item>@font/archivo_medium</item>
+        <item>@font/bungee_shade</item>
+        <item>@font/germania_one</item>
+        <item>@font/londrina_solid</item>
+        <item>@font/meddon</item>
+        <item>@font/new_rocker</item>
         <item>@font/roboto_slab_bold</item>
         <item>@font/rye</item>
         <item>@font/sigmar_one</item>
+        <item>@font/trade_winds</item>
     </array>
 </resources>
