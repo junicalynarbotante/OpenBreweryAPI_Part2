@@ -32,11 +32,22 @@
         <Button
             android:id="@+id/btn_search"
             android:layout_width="61dp"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:layout_gravity="right"
             android:text="🔍"
             android:textSize="22dp"
             android:backgroundTint="@color/Dark_brown" />
     </LinearLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_brewery_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="130dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

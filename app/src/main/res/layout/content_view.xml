@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        app:cardElevation="5dp"
+        >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -28,7 +29,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/berkshire_swash"
                     android:text="10-56 Brewing Company"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="24sp" />
 
                 <TextView
@@ -39,7 +40,7 @@
                     android:gravity="left"
                     android:text="Micro"
                     android:textAllCaps="true"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="15sp"/>
 
                 <TextView
@@ -47,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="6308165790"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="15sp"
                     android:fontFamily="@font/alata"/>
 
@@ -61,7 +62,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Indiana,"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="15sp"
                         android:fontFamily="@font/alata"/>
 
@@ -70,7 +71,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" United States"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="15sp"
                         android:fontFamily="@font/alata"/>
 
