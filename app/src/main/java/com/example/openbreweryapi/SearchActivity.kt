@@ -35,36 +35,36 @@ class SearchActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.btnSearch.setOnClickListener(this)
 
-//        searchData = arrayListOf()
-//
-//        adapter = BrewerAdapter(searchData, this)
-//        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-//        binding.rvBreweryData.layoutManager = layoutManager
-//        binding.rvBreweryData.adapter = adapter
-//
-//    }
-//
-//    private fun getSearchBrewery() {
-//        val searchBreweryAPI = RetrofitHelper.getInstance().create(OpenBreweryAPI::class.java)
-//
-//        GlobalScope.launch(Dispatchers.IO) {
-//            val result = searchBreweryAPI.getSearchBreweryData("Name")
-//            val searchBreweryResult = result.body()
-//
-//            if (searchBreweryResult != null) {
-//
-//                withContext(Dispatchers.Main) {
-//
-//                }
-//            }
-//        }
-//    }
+        searchData = arrayListOf()
+
+        adapter = BrewerAdapter(searchData, this)
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.rvBreweryData.layoutManager = layoutManager
+        binding.rvBreweryData.adapter = adapter
+
+    }
+
+    private fun getSearchBrewery() {
+        val searchBreweryAPI = RetrofitHelper.getInstance().create(OpenBreweryAPI::class.java)
+
+        GlobalScope.launch(Dispatchers.IO) {
+            val result = searchBreweryAPI.getSearchBreweryData("Name")
+            val searchBreweryResult = result.body()
+
+            if (searchBreweryResult != null) {
+
+                withContext(Dispatchers.Main) {
+
+                }
+            }
+        }
+
     }
 
     override fun onClick(p0: View?) {
         when (p0!!.id) {
             (R.id.btn_search) -> {
-              //  getSearchBrewery()
+                getSearchBrewery()
                 val breweryName = binding.txtName.text.toString()
                 if (breweryName.isEmpty()) {
                     binding.txtName.error = "Required"
