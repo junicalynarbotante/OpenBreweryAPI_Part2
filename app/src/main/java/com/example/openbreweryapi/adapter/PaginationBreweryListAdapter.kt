@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.openbreweryapi.databinding.ContentViewBinding
 import com.example.openbreweryapi.models.listBreweryAPI.openBreweryModelItem
+import com.example.openbreweryapi.services.helper.NullHelper
 
 class PaginationBreweryListAdapter (private var breweryList: ArrayList<openBreweryModelItem>, context: Context): RecyclerView.Adapter<PaginationBreweryListAdapter.PaginatedViewHolder>(){
 
@@ -14,8 +15,8 @@ class PaginationBreweryListAdapter (private var breweryList: ArrayList<openBrewe
            with(binding){
                txtName.text = itemData.name
                txtTypeOfBrewery.text = itemData.brewery_type
-               txtPhone.text = String.format("Phone No.: %s", itemData.phone)
-               txtState.text = String.format("%s, ",itemData.state)
+               txtPhone.text = String.format("Phone No.: %s", NullHelper.checkNull(itemData.phone))
+               txtState.text = String.format("%s, ",NullHelper.checkNull(itemData.state))
                txtCountry.text = itemData.country
            }
        }
