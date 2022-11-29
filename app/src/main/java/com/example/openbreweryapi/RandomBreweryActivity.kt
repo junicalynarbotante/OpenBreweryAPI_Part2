@@ -2,6 +2,7 @@ package com.example.openbreweryapi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.openbreweryapi.adapter.BrewerAdapter
@@ -57,7 +58,22 @@ class RandomBreweryActivity : AppCompatActivity(), View.OnClickListener {
         when (p0!!.id) {
             (R.id.btn_randomizer) -> {
                 getRandomBrewery()
+                showAnimation()
             }
         }
+    }
+
+    private fun showAnimation(){
+        binding.rvBreweryData.visibility = View.GONE
+        binding.animationLoading.visibility = View.VISIBLE
+
+        object : CountDownTimer(3000,1000){
+            override fun onTick(p0: Long) {
+            }
+            override fun onFinish() {
+                    binding.rvBreweryData.visibility = View.VISIBLE
+                    binding.animationLoading.visibility = View.GONE
+                }
+        }.start()
     }
 }

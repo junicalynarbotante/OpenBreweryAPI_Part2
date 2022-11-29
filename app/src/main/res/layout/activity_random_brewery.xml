@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RandomBreweryActivity"
-    android:background="@color/bg_random_brewery">
+    android:background="@color/light_brown">
 
     <LinearLayout
         android:id="@+id/ll_random_rv"
@@ -44,4 +44,17 @@
             android:fontFamily="@font/archivo_bold"
             android:backgroundTint="@color/Dark_brown" />
     </LinearLayout>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_loading"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:background="@color/light_brown"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/new_year_party" />
 </androidx.constraintlayout.widget.ConstraintLayout>

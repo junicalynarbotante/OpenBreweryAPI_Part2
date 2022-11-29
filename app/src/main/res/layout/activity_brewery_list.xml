@@ -1,114 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="4dp"
-    android:background="#f7d794">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#f7d794"
+    tools:context=".BreweryListActivity">
 
     <LinearLayout
+        android:id="@+id/ll_list_brewery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filter: "
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/archivo_bold"
+            android:paddingEnd="15dp"
+            android:textColor="@color/Dark_brown" />
         <RadioGroup
-            android:id="@+id/ll_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <RadioButton
-                    android:id="@+id/btn_micro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/archivo_medium"
-                    android:text="Micro" />
-
-                <RadioButton
-                android:id="@+id/btn_nano"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/archivo_medium"
-                android:text="Nano" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-            <RadioButton
-                android:id="@+id/btn_regional"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/archivo_medium"
-                android:text="Regional" />
+            android:weightSum="4"
+            android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/btn_brewpub"
+                android:id="@+id/rb_micro"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:fontFamily="@font/archivo_medium"
-                android:text="Brewpub" />
-
-            </LinearLayout>
+                android:text="Micro"
+                android:textColor="@color/Dark_brown"
+                android:textSize="16dp"
+                android:fontFamily="@font/roboto_slab_bold"/>
+            <RadioButton
+                android:id="@+id/rb_nano"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Nano"
+                android:textColor="@color/Dark_brown"
+                android:textSize="16dp"
+                android:fontFamily="@font/roboto_slab_bold"/>
+            <RadioButton
+                android:id="@+id/rb_brewpub"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Brewpub"
+                android:textColor="@color/Dark_brown"
+                android:textSize="16dp"
+                android:fontFamily="@font/roboto_slab_bold"/>
+            <RadioButton
+                android:id="@+id/rb_regional"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Regional"
+                android:textColor="@color/Dark_brown"
+                android:textSize="16dp"
+                android:fontFamily="@font/roboto_slab_bold"/>
 
         </RadioGroup>
 
         <Button
+            android:id="@+id/btn_refresh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/Dark_brown"
             android:fontFamily="@font/archivo_bold"
+            android:layout_marginHorizontal="10dp"
             app:cornerRadius="28dp"
             android:text="Refresh List" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_infinite"
-        android:layout_width="401dp"
-        android:layout_height="528dp"
-        app:layout_constraintBottom_toTopOf="@+id/ll_progress_bar"
+        android:id="@+id/rv_brewery_list_paginated"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/ll_list_brewery"
+        app:layout_constraintBottom_toTopOf="@id/ll_for_loading"/>
 
     <LinearLayout
-        android:id="@+id/ll_progress_bar"
+        android:id="@+id/ll_for_loading"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="80dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            app:lottie_autoPlay="true"
+            app:lottie_clipToCompositionBounds="true"
+            app:lottie_rawRes="@raw/beer_mug" />
     </LinearLayout>
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_brown"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/ll_for_loading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_list_brewery"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_cacheComposition="true"
+        app:lottie_rawRes="@raw/new_year_party" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-
