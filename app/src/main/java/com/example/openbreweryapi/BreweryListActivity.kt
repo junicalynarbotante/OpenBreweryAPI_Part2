@@ -28,9 +28,8 @@ class BreweryListActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var breweryData: ArrayList<openBreweryModelItem>
     private lateinit var adapter: PaginationBreweryListAdapter
     private var filter:String = ""
-    private var page = 0
     private var isLoading:Boolean = false
-    private var pageCounter = 0
+    private var pageCounter = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,7 +112,7 @@ class BreweryListActivity : AppCompatActivity(), View.OnClickListener {
         val breweryAPI = RetrofitHelper.getInstance().create(OpenBreweryAPI::class.java)
 
         GlobalScope.launch(Dispatchers.IO) {
-            val result = breweryAPI.getBreweryData(filter,5, page)
+            val result = breweryAPI.getBreweryData(filter,5, pageCounter)
             val breweryDataResult = result.body()
 
             if (breweryDataResult != null) {
