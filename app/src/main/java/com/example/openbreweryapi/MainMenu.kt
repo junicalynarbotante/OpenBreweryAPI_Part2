@@ -17,6 +17,7 @@ class MainMenu : AppCompatActivity() , View.OnClickListener {
 
         binding.btnBreweryList.setOnClickListener(this)
         binding.btnRandomBrewery.setOnClickListener(this)
+        binding.btnFavourite.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -27,6 +28,10 @@ class MainMenu : AppCompatActivity() , View.OnClickListener {
             }
             (R.id.btn_random_brewery)-> {
                 val intent = Intent(this@MainMenu,RandomBreweryActivity::class.java)
+                startActivity(intent)
+            }
+            (R.id.btn_favourite)-> {
+                val intent = Intent(this@MainMenu,FavouriteActivity::class.java)
                 startActivity(intent)
             }
         }

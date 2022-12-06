@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.openbreweryapi">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,11 +16,18 @@
         android:theme="@style/Theme.OpenBreweryAPI"
         tools:targetApi="31">
         <activity
-            android:name=".RandomBreweryActivity"
-            android:exported="false" >
+            android:name=".FavouriteActivity"
+            android:exported="false">
             <meta-data
-            android:name="android.app.lib_name"
-            android:value="" />
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".RandomBreweryActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
         <activity
             android:name=".BreweryListActivity"

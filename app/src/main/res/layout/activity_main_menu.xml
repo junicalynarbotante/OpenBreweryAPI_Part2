@@ -80,6 +80,18 @@
                 android:backgroundTint="#FFA93B"
                 android:textColor="@color/Dark_brown"/>
 
+            <Button
+                android:id="@+id/btn_favourite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cornerRadius="28dp"
+                android:layout_marginBottom="20dp"
+                android:text="My Favourites"
+                android:textSize="18sp"
+                android:fontFamily="@font/archivo_bold"
+                android:backgroundTint="#C96E12"
+                android:textColor="@color/Dark_brown"/>
+
         </LinearLayout>
     </LinearLayout>
 
