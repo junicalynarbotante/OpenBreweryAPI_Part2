@@ -15,18 +15,22 @@ import com.example.openbreweryapi.databinding.ActivityMainMenuBinding
 import com.example.openbreweryapi.databinding.ActivityRandomBreweryBinding
 import com.example.openbreweryapi.models.listBreweryAPI.openBreweryModel
 import com.example.openbreweryapi.models.listBreweryAPI.openBreweryModelItem
+import com.example.openbreweryapi.realm.config.RealmConfig
+import com.example.openbreweryapi.realm.config.operation.OperationBrewery
 import com.example.openbreweryapi.services.helper.RetrofitHelper
 import com.example.openbreweryapi.services.repository.OpenBreweryAPI
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import io.realm.RealmConfiguration
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 import kotlin.random.Random
 
-class BreweryListActivity : AppCompatActivity(), View.OnClickListener {
+class BreweryListActivity : AppCompatActivity(), View.OnClickListener, PaginationBreweryListAdapter.PaginationBreweryListAdapterInterface {
     private lateinit var binding: ActivityBreweryListBinding
     private lateinit var breweryData: ArrayList<openBreweryModelItem>
     private lateinit var adapter: PaginationBreweryListAdapter
+    private lateinit var realmConfig: RealmConfiguration
+    private lateinit var getDbOperation: OperationBrewery
+    private lateinit var coroutineContext: CoroutineContext
     private var filter:String = ""
     private var isLoading:Boolean = false
     private var pageCounter = 1
@@ -44,7 +48,7 @@ class BreweryListActivity : AppCompatActivity(), View.OnClickListener {
         binding.rbNano.setOnClickListener(this)
         binding.rbRegional.setOnClickListener(this)
 
-        adapter = PaginationBreweryListAdapter(breweryData, this)
+        adapter = PaginationBreweryListAdapter(breweryData, this,this)
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         binding.rvBreweryListPaginated.layoutManager = layoutManager
         binding.rvBreweryListPaginated.adapter = adapter
@@ -64,6 +68,9 @@ class BreweryListActivity : AppCompatActivity(), View.OnClickListener {
 
             }
         })
+        realmConfig = RealmConfig.getConfiguration()
+        getDbOperation = OperationBrewery(realmConfig)
+        coroutineContext = Job() + Dispatchers.IO
     }
     private fun  getData(){
         object : CountDownTimer(3000,1000){
@@ -150,5 +157,27 @@ class BreweryListActivity : AppCompatActivity(), View.OnClickListener {
                 binding.animationLoading.cancelAnimation()
             }
         }.start()
+    }
+
+    override fun removeFav(id: String) {
+        val scope = CoroutineScope(coroutineContext + CoroutineName("RemoveDBEntry"))
+        scope.launch (Dispatchers.IO) {
+            getDbOperation.removeBrewery(id)
+        }
+    }
+
+    override fun addFav(
+        id: String,
+        name: String,
+        type: String,
+        phone: String,
+        state: String,
+        country: String,
+        position: Int
+    ) {
+        val scope = CoroutineScope(coroutineContext + CoroutineName("AddToDatabase"))
+        scope.launch(Dispatchers.IO) {
+            getDbOperation.insertBrewery(id,name, type, phone, state, country)
+        }
     }
 }

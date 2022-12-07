@@ -78,17 +78,16 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ImageButton
+        <ToggleButton
             android:id="@+id/favorite"
-            android:scaleType="fitXY"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="bottom|right"
             android:layout_marginBottom="5dp"
             android:layout_marginRight="5dp"
-            android:background="#00ffffff"
-            android:onClick="onToggleStar"
-            android:src="@drawable/star" />
+            android:textOff=""
+            android:textOn=""
+            android:background="@drawable/star" />
 
 
         </androidx.cardview.widget.CardView>

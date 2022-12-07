@@ -8,18 +8,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.openbreweryapi.adapter.BrewerAdapter
 import com.example.openbreweryapi.databinding.ActivityRandomBreweryBinding
 import com.example.openbreweryapi.models.listBreweryAPI.openBreweryModelItem
+import com.example.openbreweryapi.realm.config.RealmConfig
+import com.example.openbreweryapi.realm.config.operation.OperationBrewery
 import com.example.openbreweryapi.services.helper.RetrofitHelper
 import com.example.openbreweryapi.services.repository.OpenBreweryAPI
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import io.realm.RealmConfiguration
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 import kotlin.random.Random
 
-class RandomBreweryActivity : AppCompatActivity(), View.OnClickListener {
+class RandomBreweryActivity : AppCompatActivity(), View.OnClickListener, BrewerAdapter.BreweryAdapterInterface {
     private lateinit var binding: ActivityRandomBreweryBinding
     private lateinit var adapter: BrewerAdapter
     private lateinit var breweryData: ArrayList<openBreweryModelItem>
+    private lateinit var realmConfig: RealmConfiguration
+    private lateinit var getDbOperation: OperationBrewery
+    private lateinit var coroutineContext: CoroutineContext
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRandomBreweryBinding.inflate(layoutInflater)
@@ -29,10 +33,14 @@ class RandomBreweryActivity : AppCompatActivity(), View.OnClickListener {
 
         breweryData = arrayListOf()
 
-        adapter = BrewerAdapter(breweryData, this)
+        adapter = BrewerAdapter(breweryData, this,this)
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rvBreweryData.layoutManager = layoutManager
         binding.rvBreweryData.adapter = adapter
+
+        realmConfig = RealmConfig.getConfiguration()
+        getDbOperation = OperationBrewery(realmConfig)
+        coroutineContext = Job() + Dispatchers.IO
 
     }
 
@@ -75,5 +83,27 @@ class RandomBreweryActivity : AppCompatActivity(), View.OnClickListener {
                     binding.animationLoading.visibility = View.GONE
                 }
         }.start()
+    }
+
+    override fun removeFav(id: String) {
+        val scope = CoroutineScope(coroutineContext + CoroutineName("RemoveDBEntry"))
+        scope.launch (Dispatchers.IO) {
+            getDbOperation.removeBrewery(id)
+        }
+    }
+
+    override fun addFav(
+        id: String,
+        name: String,
+        type: String,
+        phone: String,
+        state: String,
+        country: String,
+        position: Int
+    ) {
+        val scope = CoroutineScope(coroutineContext + CoroutineName("AddToDatabase"))
+        scope.launch(Dispatchers.IO) {
+            getDbOperation.insertBrewery(id,name, type, phone, state, country)
+        }
     }
 }

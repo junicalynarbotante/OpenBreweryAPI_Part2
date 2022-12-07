@@ -7,6 +7,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".OpenBreweryApplication"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -31,12 +32,6 @@
         </activity>
         <activity
             android:name=".BreweryListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SearchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".content_cv"
             android:exported="false" />
         <activity
             android:name=".MainMenu"
